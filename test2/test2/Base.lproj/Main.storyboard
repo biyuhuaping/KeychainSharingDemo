@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Nd-0M-VgL">
+                                <rect key="frame" x="124.66666666666669" y="151.33333333333334" width="144" height="30"/>
+                                <state key="normal" title="获取 NSUserDefaults"/>
+                                <connections>
+                                    <action selector="getFromUserDefaults:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pSE-cs-1fY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. App Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzP-zG-NzF">
+                                <rect key="frame" x="143" y="80" width="107" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Keychain Sharing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0C-Ae-gac">
+                                <rect key="frame" x="121.66666666666667" y="281.33333333333331" width="149.66666666666663" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7F5-Gj-3a6">
+                                <rect key="frame" x="185" y="317.33333333333331" width="23" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1r-NH-Wmy">
+                                <rect key="frame" x="185" y="345.66666666666669" width="23" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDf-Xn-rPd">
+                                <rect key="frame" x="148.66666666666666" y="381" width="96" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0an-ru-dBR"/>
+                                </constraints>
+                                <state key="normal" title="获取 Keychain"/>
+                                <connections>
+                                    <action selector="getFromKeychain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sbz-o3-M9B"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1m-Lm-05B">
+                                <rect key="frame" x="185" y="116" width="23" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="N1r-NH-Wmy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Dd-54-X9P"/>
+                            <constraint firstItem="e1m-Lm-05B" firstAttribute="top" secondItem="LzP-zG-NzF" secondAttribute="bottom" constant="15" id="Kg4-hd-dzG"/>
+                            <constraint firstItem="7F5-Gj-3a6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MUk-js-PIU"/>
+                            <constraint firstItem="S0C-Ae-gac" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N7U-YM-cx8"/>
+                            <constraint firstItem="uDf-Xn-rPd" firstAttribute="top" secondItem="N1r-NH-Wmy" secondAttribute="bottom" constant="15" id="Niw-fd-kbG"/>
+                            <constraint firstItem="7F5-Gj-3a6" firstAttribute="top" secondItem="S0C-Ae-gac" secondAttribute="bottom" constant="15" id="SEy-eB-PtF"/>
+                            <constraint firstItem="e1m-Lm-05B" firstAttribute="centerX" secondItem="LzP-zG-NzF" secondAttribute="centerX" id="Twj-G0-9vK"/>
+                            <constraint firstItem="9Nd-0M-VgL" firstAttribute="top" secondItem="e1m-Lm-05B" secondAttribute="bottom" constant="15" id="V6F-4a-kTc"/>
+                            <constraint firstItem="LzP-zG-NzF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="80" id="WgM-Xm-LVH"/>
+                            <constraint firstItem="LzP-zG-NzF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="frV-ZJ-dPC"/>
+                            <constraint firstItem="S0C-Ae-gac" firstAttribute="top" secondItem="9Nd-0M-VgL" secondAttribute="bottom" constant="100" id="pMw-xg-fnW"/>
+                            <constraint firstItem="uDf-Xn-rPd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rEt-cx-Jzf"/>
+                            <constraint firstItem="N1r-NH-Wmy" firstAttribute="top" secondItem="7F5-Gj-3a6" secondAttribute="bottom" constant="8" symbolic="YES" id="tx9-gJ-2cv"/>
+                            <constraint firstItem="9Nd-0M-VgL" firstAttribute="centerX" secondItem="e1m-Lm-05B" secondAttribute="centerX" id="wDk-NH-ikP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="e1m-Lm-05B" id="H4H-gT-eoc"/>
+                        <outlet property="passwordLab" destination="N1r-NH-Wmy" id="kKg-je-eTw"/>
+                        <outlet property="userLab" destination="7F5-Gj-3a6" id="EgF-2y-Rdh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="108" y="111"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
