@@ -43,18 +43,12 @@ static NSString *_cachedDeviceID = nil;
             // 降级方案：使用 UUID
             deviceID = [[NSUUID UUID] UUIDString];
         }
-        
         // 保存到 Keychain
-        if (deviceID && deviceID.length > 0) {
-            [self saveValue:deviceID forKey:kDeviceIDKey accessGroup:kGroupKey];
-        }
+        [self saveValue:deviceID forKey:kDeviceIDKey accessGroup:kGroupKey];
     }
     
     // 4. 更新内存缓存
-    if (deviceID && deviceID.length > 0) {
-        _cachedDeviceID = deviceID;
-    }
-    
+    _cachedDeviceID = deviceID;
     return deviceID;
 }
 

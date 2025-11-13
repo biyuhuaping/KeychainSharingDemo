@@ -46,7 +46,7 @@
     
     
     NSString *seedID = [self bundleSeedID];
-    // 构建 accessGroup：TeamID.groupIdentifier（与 entitlements 中的配置一致，其实同一个账号下的app开启了Keychain Sharing，就不用传也能共享）
+    // 构建 accessGroup：TeamID.groupIdentifier（与 entitlements 中的配置一致）其实同一个账号下的app开启了Keychain Sharing后，不传accessGroup也能共享，不同账号下的app，使用同样的accessGroup也无法共享
     NSString *accessGroup = nil;//[NSString stringWithFormat:@"%@.com.zhou.app", seedID];
     // 使用相同的 service 名称（所有 App 必须使用相同的 service）
     NSString *sharedService = @"com.zhou.shared.keychain";
