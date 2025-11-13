@@ -38,21 +38,25 @@
 //    NSString *username = [wrapper objectForKey:(id)kSecAttrAccount];
 //    NSString *password = [wrapper objectForKey:(id)kSecValueData];
     
-    NSString *seedID = [self bundleSeedID];
-    if (seedID) {
-        // 构建 accessGroup：TeamID.groupIdentifier（与 entitlements 中的配置一致）
-        NSString *accessGroup = [NSString stringWithFormat:@"%@.com.zhou.app", seedID];
-        // 使用相同的 service 名称（所有 App 必须使用相同的 service）
-        NSString *sharedService = @"com.zhou.shared.keychain";
-        
-        // 读取共享 Keychain
-        NSString *username = [KeychainHelper readValueForKey:@"username" service:sharedService accessGroup:accessGroup];
-        NSString *password = [KeychainHelper readValueForKey:@"password" service:sharedService accessGroup:accessGroup];
-        NSLog(@"共享 Keychain - username: %@, password: %@", username, password);
-        self.userLab.text = username;
-        self.passwordLab.text = password;
-    }
     
+    // 读取不共享 Keychain
+    NSString *name = [KeychainHelper readValueForKey:@"username" accessGroup:nil];
+    NSString *pwd = [KeychainHelper readValueForKey:@"password" accessGroup:nil];
+    NSLog(@"不共享 Keychain : %@, %@", name, pwd);
+    
+    
+    NSString *seedID = [self bundleSeedID];
+    // 构建 accessGroup：TeamID.groupIdentifier（与 entitlements 中的配置一致，其实同一个账号下的app开启了Keychain Sharing，就不用传也能共享）
+    NSString *accessGroup = nil;//[NSString stringWithFormat:@"%@.com.zhou.app", seedID];
+    // 使用相同的 service 名称（所有 App 必须使用相同的 service）
+    NSString *sharedService = @"com.zhou.shared.keychain";
+    
+    // 读取共享 Keychain
+    NSString *username = [KeychainHelper readValueForKey:@"username" service:sharedService accessGroup:accessGroup];
+    NSString *password = [KeychainHelper readValueForKey:@"password" service:sharedService accessGroup:accessGroup];
+    NSLog(@"共享 Keychain %@, %@", username, password);
+    self.userLab.text = username;
+    self.passwordLab.text = password;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -61,6 +65,7 @@
     NSLog(@"\ndeviceID: %@\nuuid：%@",[KeychainHelper deviceID], deviceID);
 }
 
+//自动获取 Team ID：从系统返回的 attributes 中提取 Team ID
 - (NSString *)bundleSeedID {
     NSDictionary *query = @{
         (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
