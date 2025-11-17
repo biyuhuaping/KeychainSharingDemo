@@ -13,7 +13,6 @@
 #import <UIKit/UIKit.h>
 
 #define kServiceKey [[NSBundle mainBundle] bundleIdentifier]
-static NSString * const kGroupKey = nil;//@"5Z2477437E.com.YaoBangMang";
 
 @implementation KeychainHelper
 
