@@ -12,45 +12,10 @@
 #import <Security/Security.h>
 #import <UIKit/UIKit.h>
 
-// deviceID 的存储 key
-static NSString * const kDeviceIDKey = @"deviceID";
-static NSString * const kGroupKey = nil;//@"5Z2477437E.com.YaoBangMang";//2UV86B857L
 #define kServiceKey [[NSBundle mainBundle] bundleIdentifier]
-
-// deviceID 的内存缓存，避免频繁读取 Keychain
-static NSString *_cachedDeviceID = nil;
+static NSString * const kGroupKey = nil;//@"5Z2477437E.com.YaoBangMang";
 
 @implementation KeychainHelper
-
-// 获取设备ID（优化版本）
-// 优先从内存缓存读取，其次从 Keychain 读取，如果都不存在则生成新的并保存
-// @return 设备ID字符串，优先使用 IDFV，如果不可用则使用 UUID
-+ (NSString *)deviceID {
-    // 1. 先从内存缓存读取
-    if (_cachedDeviceID) {
-        return _cachedDeviceID;
-    }
-    
-    // 2. 从 Keychain 读取
-    NSString *deviceID = [self readValueForKey:kDeviceIDKey accessGroup:kGroupKey];
-    
-    // 3. 如果 Keychain 中不存在，生成新的并保存
-    if (!deviceID || deviceID.length == 0) {
-        // 优先使用 IDFV（同一厂商的 App 在同一设备上相同）
-        if ([UIDevice currentDevice]) {
-            deviceID = [[UIDevice currentDevice].identifierForVendor UUIDString];
-        } else {
-            // 降级方案：使用 UUID
-            deviceID = [[NSUUID UUID] UUIDString];
-        }
-        // 保存到 Keychain
-        [self saveValue:deviceID forKey:kDeviceIDKey accessGroup:kGroupKey];
-    }
-    
-    // 4. 更新内存缓存
-    _cachedDeviceID = deviceID;
-    return deviceID;
-}
 
 #pragma mark - keychin
 // 从 Keychain 中读取指定 key 的值（内部方法）
